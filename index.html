@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MYCONNECT IPTV PRO — Streaming sin límites</title>
-  <meta name="description" content="La aplicación IPTV más avanzada para Android TV, smartphones y PC Windows. Streaming estable, interfaz moderna y calidad sin compromisos." />
+  <title>Cóndor Play — Streaming sin límites</title>
+  <meta name="description" content="Cóndor Play: la aplicación IPTV más avanzada para Android TV, smartphones y PC Windows. Streaming estable, interfaz moderna y calidad sin compromisos." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     /* ─── TOKENS ─────────────────────────────────────────── */
     :root {
-      --bg:        #060810;
-      --surface:   #0d1117;
+      --bg:        #08060a;
+      --surface:   #120b0e;
       --glass:     rgba(255,255,255,0.04);
       --border:    rgba(255,255,255,0.08);
-      --cyan:      #00e5ff;
-      --cyan-dim:  #00b8d9;
-      --purple:    #7c3aed;
-      --pink:      #f0abfc;
-      --text:      #e2e8f0;
-      --muted:     #64748b;
+      --cyan:      #ec1b2e;
+      --cyan-dim:  #b3121f;
+      --purple:    #6e0b14;
+      --pink:      #ff5a6e;
+      --text:      #f1ebec;
+      --muted:     #8a7a7e;
       --radius:    16px;
-      --glow:      0 0 40px rgba(0,229,255,0.15);
+      --glow:      0 0 40px rgba(236,27,46,0.18);
     }
 
     /* ─── RESET ──────────────────────────────────────────── */
@@ -77,9 +77,21 @@
       font-size: 1.5rem;
       letter-spacing: 2px;
       color: var(--cyan);
-      text-shadow: 0 0 20px rgba(0,229,255,.5);
+      text-shadow: 0 0 20px rgba(236,27,46,.5);
     }
     .nav-logo span { color: var(--text); }
+
+    .nav-logo-img {
+      height: 42px;
+      width: auto;
+      mix-blend-mode: lighten;
+      filter: drop-shadow(0 0 10px rgba(236,27,46,.35));
+      transition: filter .2s, transform .2s;
+    }
+    .nav-logo-img:hover {
+      filter: drop-shadow(0 0 18px rgba(236,27,46,.6));
+      transform: scale(1.04);
+    }
 
     .nav-links {
       display: flex;
@@ -104,7 +116,7 @@
       transition: box-shadow .2s, transform .15s;
     }
     .nav-cta:hover {
-      box-shadow: 0 0 24px rgba(0,229,255,.5);
+      box-shadow: 0 0 24px rgba(236,27,46,.5);
       transform: translateY(-1px);
     }
 
@@ -162,9 +174,9 @@
       opacity: .55;
       animation: drift 12s ease-in-out infinite alternate;
     }
-    .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,229,255,.25), transparent 70%); top: -100px; left: -100px; }
-    .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(124,58,237,.3), transparent 70%); bottom: 0; right: -80px; animation-delay: -6s; }
-    .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(240,171,252,.2), transparent 70%); top: 40%; left: 50%; transform: translate(-50%,-50%); animation-delay: -3s; }
+    .orb-1 { width: 650px; height: 650px; background: radial-gradient(circle, rgba(236,27,46,.32), transparent 70%); top: -100px; left: -100px; }
+    .orb-2 { width: 550px; height: 550px; background: radial-gradient(circle, rgba(110,11,20,.4), transparent 70%); bottom: 0; right: -80px; animation-delay: -6s; }
+    .orb-3 { width: 320px; height: 320px; background: radial-gradient(circle, rgba(255,90,110,.25), transparent 70%); top: 40%; left: 50%; transform: translate(-50%,-50%); animation-delay: -3s; }
 
     @keyframes drift {
       from { transform: translate(0,0) scale(1); }
@@ -177,8 +189,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(0,229,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,255,.04) 1px, transparent 1px);
+        linear-gradient(rgba(236,27,46,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(236,27,46,.04) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
     }
@@ -187,8 +199,8 @@
       display: inline-flex;
       align-items: center;
       gap: .5rem;
-      background: rgba(0,229,255,.1);
-      border: 1px solid rgba(0,229,255,.25);
+      background: rgba(236,27,46,.1);
+      border: 1px solid rgba(236,27,46,.25);
       border-radius: 99px;
       padding: .3rem 1rem;
       font-family: 'DM Mono', monospace;
@@ -208,22 +220,27 @@
     }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
-    .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 10vw, 8rem);
-      line-height: 1;
-      letter-spacing: 3px;
-      position: relative; z-index: 1;
+    /* logo principal del hero */
+    .hero-logo-wrap {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       animation: fadeUp .6s .2s both;
     }
-    .hero-title .accent {
-      color: transparent;
-      -webkit-text-stroke: 2px var(--cyan);
-      text-shadow: none;
+    .hero-logo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -20% -10%;
+      background: radial-gradient(circle, rgba(236,27,46,.16), transparent 70%);
+      pointer-events: none;
+      z-index: -1;
     }
-    .hero-title .glow {
-      color: var(--cyan);
-      text-shadow: 0 0 80px rgba(0,229,255,.6), 0 0 160px rgba(0,229,255,.2);
+    .hero-logo {
+      width: clamp(260px, 40vw, 460px);
+      mix-blend-mode: lighten;
+      filter: drop-shadow(0 0 60px rgba(236,27,46,.45));
     }
 
     .hero-sub {
@@ -297,7 +314,7 @@
     }
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 40px rgba(0,229,255,.45);
+      box-shadow: 0 8px 40px rgba(236,27,46,.45);
     }
     .btn-primary:active { transform: translateY(0); }
 
@@ -317,8 +334,8 @@
     }
     .btn-secondary:hover {
       transform: translateY(-3px);
-      border-color: rgba(0,229,255,.4);
-      background: rgba(0,229,255,.07);
+      border-color: rgba(236,27,46,.4);
+      background: rgba(236,27,46,.07);
     }
 
     .hero-meta {
@@ -435,7 +452,7 @@
       transition: opacity .3s;
     }
     .feature-card:hover {
-      border-color: rgba(0,229,255,.3);
+      border-color: rgba(236,27,46,.3);
       transform: translateY(-5px);
       box-shadow: var(--glow);
     }
@@ -446,8 +463,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0,229,255,.08);
-      border: 1px solid rgba(0,229,255,.15);
+      background: rgba(236,27,46,.08);
+      border: 1px solid rgba(236,27,46,.15);
       border-radius: 12px;
       font-size: 1.5rem;
       margin-bottom: 1.25rem;
@@ -494,11 +511,11 @@
       justify-content: center;
       border-radius: 50%;
       background: var(--bg);
-      border: 2px solid rgba(0,229,255,.3);
+      border: 2px solid rgba(236,27,46,.3);
       font-family: 'Bebas Neue', sans-serif;
       font-size: 2rem;
       color: var(--cyan);
-      box-shadow: 0 0 30px rgba(0,229,255,.15);
+      box-shadow: 0 0 30px rgba(236,27,46,.15);
       position: relative;
     }
     .step-title { font-weight: 600; font-size: 1.05rem; }
@@ -526,12 +543,12 @@
     }
     .pricing-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 60px rgba(0,229,255,.1);
+      box-shadow: 0 12px 60px rgba(236,27,46,.1);
     }
     .pricing-card.featured {
       border-color: var(--cyan);
-      background: linear-gradient(145deg, rgba(0,229,255,.06), rgba(124,58,237,.06));
-      box-shadow: 0 0 0 1px rgba(0,229,255,.2), var(--glow);
+      background: linear-gradient(145deg, rgba(236,27,46,.06), rgba(110,11,20,.06));
+      box-shadow: 0 0 0 1px rgba(236,27,46,.2), var(--glow);
     }
     .pricing-card.featured:hover { transform: translateY(-9px); }
 
@@ -575,7 +592,7 @@
     .price-period { color: var(--muted); font-size: .85rem; margin-bottom: .5rem; }
     .plan-saving {
       display: inline-block;
-      background: rgba(0,229,255,.1);
+      background: rgba(236,27,46,.1);
       color: var(--cyan);
       font-size: .75rem;
       font-family: 'DM Mono', monospace;
@@ -605,7 +622,7 @@
     .plan-features li .check {
       width: 18px; height: 18px;
       border-radius: 50%;
-      background: rgba(0,229,255,.1);
+      background: rgba(236,27,46,.1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -624,11 +641,11 @@
     }
     .btn-plan-outline {
       background: transparent;
-      border: 1px solid rgba(0,229,255,.35);
+      border: 1px solid rgba(236,27,46,.35);
       color: var(--cyan);
     }
     .btn-plan-outline:hover {
-      background: rgba(0,229,255,.07);
+      background: rgba(236,27,46,.07);
       transform: translateY(-2px);
     }
     .btn-plan-filled {
@@ -636,7 +653,7 @@
       color: #000;
     }
     .btn-plan-filled:hover {
-      box-shadow: 0 6px 30px rgba(0,229,255,.45);
+      box-shadow: 0 6px 30px rgba(236,27,46,.45);
       transform: translateY(-2px);
     }
 
@@ -650,8 +667,8 @@
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      background: linear-gradient(135deg, rgba(0,229,255,.06), rgba(124,58,237,.08));
-      border: 1px solid rgba(0,229,255,.2);
+      background: linear-gradient(135deg, rgba(236,27,46,.06), rgba(110,11,20,.08));
+      border: 1px solid rgba(236,27,46,.2);
       border-radius: 24px;
       padding: 4rem 3rem;
       max-width: 680px;
@@ -664,7 +681,7 @@
       position: absolute;
       top: -80px; left: 50%; transform: translateX(-50%);
       width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(0,229,255,.12), transparent 70%);
+      background: radial-gradient(circle, rgba(236,27,46,.12), transparent 70%);
       pointer-events: none;
     }
     .download-icon {
@@ -721,21 +738,21 @@
     }
     .btn-download-android:hover {
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 10px 50px rgba(0,229,255,.5);
+      box-shadow: 0 10px 50px rgba(236,27,46,.5);
     }
 
     /* Windows — outlined */
     .btn-download-windows {
-      background: rgba(55, 0, 255, 0.06);
+      background: rgba(180,15,30,0.10);
       color: var(--text);
       border: 1px solid rgba(255,255,255,.15);
       backdrop-filter: blur(10px);
     }
     .btn-download-windows:hover {
       transform: translateY(-3px) scale(1.02);
-      border-color: rgba(0,229,255,.4);
-      background: rgba(0,229,255,.07);
-      box-shadow: 0 10px 40px rgba(0,229,255,.2);
+      border-color: rgba(236,27,46,.4);
+      background: rgba(236,27,46,.07);
+      box-shadow: 0 10px 40px rgba(236,27,46,.2);
       
     }
 
@@ -785,6 +802,7 @@
       margin-bottom: 2.5rem;
     }
     .footer-brand .nav-logo { font-size: 1.6rem; display: inline-block; margin-bottom: .75rem; }
+    .footer-brand .nav-logo-img { height: 36px; margin-bottom: .75rem; }
     .footer-brand p { color: var(--muted); font-size: .9rem; max-width: 240px; }
 
     .footer-col h4 {
@@ -835,7 +853,7 @@
       position: fixed;
       bottom: 2rem; right: 2rem;
       background: var(--surface);
-      border: 1px solid rgba(0,229,255,.3);
+      border: 1px solid rgba(236,27,46,.3);
       border-radius: 12px;
       padding: 1rem 1.5rem;
       font-size: .9rem;
@@ -880,7 +898,7 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">MYCONNECT<span> IPTV</span></div>
+    <a href="#hero" aria-label="Cóndor Play"><img src="logo.jpeg" alt="Cóndor Play" class="nav-logo-img"></a>
     <ul class="nav-links">
       <li><a href="#features">Características</a></li>
       <li><a href="#how">¿Cómo funciona?</a></li>
@@ -908,16 +926,15 @@
 
     <div class="badge">
       <span class="badge-dot"></span>
-      v2.9.6— Ahora disponible · Android &amp; Windows
+      v1.3.11 - v2.9.8 — Ahora disponible · Android &amp; Windows
     </div>
 
-    <h1 class="hero-title">
-      <span class="glow">MYCONNECT</span><br>
-      <span class="accent">IPTV PRO</span>
-    </h1>
+    <div class="hero-logo-wrap">
+      <img src="logo.jpeg" alt="Cóndor Play" class="hero-logo">
+    </div>
 
     <p class="hero-sub">
-      El reproductor IPTV más rápido y elegante para Android TV, smartphones y PC Windows. 
+      El reproductor IPTV más rápido y elegante para Android TV, smartphones y PC Windows.
       Streaming estable, interfaz cinética y actualizaciones continuas.
     </p>
 
@@ -996,7 +1013,7 @@
       <div class="features-header">
         <p class="section-eyebrow">Características</p>
         <h2 class="section-title">Todo lo que necesitas<br>en una sola app</h2>
-        <p class="section-sub">Diseñada para exigentes. MYCONNECT IPTV PRO combina velocidad, estabilidad y una experiencia visual premium en Android y Windows.</p>
+        <p class="section-sub">Diseñada para exigentes. Cóndor Play combina velocidad, estabilidad y una experiencia visual premium en Android y Windows.</p>
       </div>
 
       <div class="features-grid">
@@ -1067,7 +1084,7 @@
       <div class="pricing-header">
         <p class="section-eyebrow">Planes</p>
         <h2 class="section-title">Elige tu plan ideal</h2>
-        <p class="section-sub">Sin contratos ocultos ni sorpresas. Todos los planes incluyen acceso completo a MYCONNECT IPTV PRO.</p>
+        <p class="section-sub">Sin contratos ocultos ni sorpresas. Todos los planes incluyen acceso completo a Cóndor Play.</p>
       </div>
 
       <div class="pricing-grid">
@@ -1150,7 +1167,7 @@
       <p class="section-eyebrow" style="margin-bottom:3rem">Descarga</p>
       <div class="download-card reveal">
         <div class="download-icon">📲</div>
-        <h2 class="download-title">MYCONNECT IPTV PRO</h2>
+        <h2 class="download-title">Cóndor Play</h2>
         <p class="download-sub">Disponible para Android y Windows. Compatible con teléfonos, tablets, Android TV Box y PC de escritorio.</p>
 
         <!-- ── DUAL DOWNLOAD BUTTONS ── -->
@@ -1212,7 +1229,7 @@
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <div class="nav-logo">MYCONNECT<span> IPTV</span></div>
+          <img src="logo.jpeg" alt="Cóndor Play" class="nav-logo-img">
           <p>La aplicación IPTV más moderna para Android TV, smartphones y Windows. Streaming sin límites.</p>
         </div>
         <div class="footer-col">
@@ -1234,7 +1251,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 MYCONNECT IPTV PRO. Todos los derechos reservados.</p>
+        <p>© 2026 Cóndor Play. Todos los derechos reservados.</p>
         <a href="https://github.com/Medina07P/myconnect_iptv" target="_blank" rel="noopener" class="footer-github">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           GitHub
